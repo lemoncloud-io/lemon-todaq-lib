@@ -60,11 +60,11 @@
     "ts-jest": "^24.0.2",
     "typedoc": "^0.14.2"
   },
-  "private": true,
+  "private": false,
   "bugs": {
-    "url": "https://github.com/lemoncloud-io/lemoncloud-typescript-template/issues"
+    "url": "https://github.com/lemoncloud-io/lemon-todaq-lib/issues"
   },
-  "homepage": "https://github.com/lemoncloud-io/lemoncloud-typescript-template#readme",
+  "homepage": "https://github.com/lemoncloud-io/lemon-todaq-lib#readme",
   "repository": {
     "type": "git",
     "url": "git@github.com:lemoncloud-io/lemon-todaq-lib.git"

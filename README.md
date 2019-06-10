@@ -4,9 +4,7 @@
 
 
 ----------------
-# Requirement
-
-개발 계획 관련 요구 사항 정리.
+# How to Use
 
 
 
@@ -22,4 +20,5 @@
 
 | Version   | Description
 |--         |--
+| 0.0.1     | initial release in npm
 | 0.0.0     | initial version
