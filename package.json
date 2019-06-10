@@ -1,0 +1,55 @@
+{
+  "name": "lemon-todaq-lib",
+  "version": "0.0.1",
+  "description": "마이크로 서비스 TodaQ Library",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "nodemon": "NODE_ENV=development nodemon dist/app.js",
+    "start": "npm run build && concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run nodemon\"",
+    "build": "npm run build-ts",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "dev:test": "jest --config=jest.config.json --watchAll",
+    "test": "jest --config=jest.config.json",
+    "doc": "npm run doc:html && open dist/docs/index.html",
+    "doc:html": "typedoc src/libs --exclude **/*.spec.ts --target ES6 --mode file --out dist/docs",
+    "doc:publish": "npm run doc:html && gh-pages -m \"docs(gh-pages): publish gh-pages via typedoc\" -d dist/docs",
+    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,jsx,tsx}' --fix",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint && npm run format"
+  },
+  "husky": {
+    "hooks": {
+      "!pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts,tsx,jsx}": [
+      "npm run lint",
+      "git add"
+    ]
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "engines": {
+    "node": ">=8.10.0"
+  },
+  "author": "Steve Jung (steve@lemoncloud.io)",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/lemoncloud-io/lemoncloud-typescript-template/issues"
+  },
+  "homepage": "https://github.com/lemoncloud-io/lemoncloud-typescript-template#readme",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lemoncloud-io/lemon-todaq-lib.git"
+  }
+}
