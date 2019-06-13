@@ -1,3 +1,12 @@
+/**
+ * trans.polling.ts
+ * - polling transaction with timeout internal
+ *
+ *
+ * @author steve@lemoncloud.io
+ * @date   2019-06-12
+ * @copyright (C) lemoncloud.io 2019 - All Rights Reserved.
+ */
 export class TransactionPolling {
     public static polling = async (
         callback: (tick: number) => Promise<any>,

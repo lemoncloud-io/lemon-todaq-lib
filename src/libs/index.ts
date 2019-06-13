@@ -20,4 +20,5 @@
  * @copyright (C) lemoncloud.io 2019 - All Rights Reserved.
  */
 export * from './coin.validator';
+export * from './date.helper';
 export * from './trans.polling';
