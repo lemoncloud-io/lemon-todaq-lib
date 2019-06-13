@@ -1,4 +1,4 @@
-class Main {
+export default class Main {
     public constructor() {}
 
     public hello() {
@@ -6,4 +6,4 @@ class Main {
     }
 }
 
-export default Main;
+export * from './libs';
