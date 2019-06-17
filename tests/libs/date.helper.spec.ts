@@ -9,18 +9,20 @@ describe('DateHelper', () => {
     it('timestamp', () => {
         expect(service.timestamp(dt)).toBe(ts);
         expect(service.parseTimestamp(ts).getTime()).toBe(dt.getTime());
-        expect(service.timestamp(service.asDate('2019-06-14'))).toBe('2019-06-14 00:00:00');
+        expect(service.timestamp(service.asDate())).toBe(service.timestamp(new Date()));
+        expect(service.timestamp(service.asDate(new Date().getTime()))).toBe(service.timestamp());
+        expect(service.timestamp(service.asDate('2019-06-14', 9))).toBe('2019-06-14 00:00:00');
         expect(service.timestamp(service.asDate('2019-06-14 13:10'))).toBe('2019-06-14 13:10:00');
         expect(service.timestamp(service.asDate('2019-06-14 13:10:00'))).toBe('2019-06-14 13:10:00');
         expect(service.timestamp(service.asDate('20190614'))).toBe('2019-06-14 00:00:00');
         expect(service.timestamp(service.asDate('20190614 1310'))).toBe('2019-06-14 13:10:00');
         expect(service.timestamp(service.asDate(1560443766000))).toBe(ts);
-        // expect(service.timestamp(service.asDate('20190614 13:10'))).toThrow('error');
+        expect(() => service.timestamp(service.asDate('20190614 13:10'))).toThrow();
     });
 
     it('timestamp-timezone', () => {
         expect(service.timestamp(dt, 7)).toBe(ts7);
         expect(service.parseTimestamp(ts7, 7).getTime()).toBe(dt.getTime());
-        // expect(service.parseTimestamp('2019-06-14', 8).getTime()).toThrow('error');
+        expect(() => service.parseTimestamp('2019-06-14', 8).getTime()).toThrow();
     });
 });
