@@ -21,6 +21,9 @@ export class CryptHelper {
         return hex(sha256(new Uint8Array(Buffer.from(msg))));
     }
 
+    public static readonly HASH_DELIMITER = '^';
+    public static readonly SIGN_DELIMITER = '.';
+
     /**
      * get signature for the given message.
      *
@@ -36,9 +39,9 @@ export class CryptHelper {
         const ver = `v${version}`;
         const ttm = `${expired.getTime()}`;
         const sig = CryptHelper.sha256(message);
-        const msg = [ver, passcode, ttm, sig].join('^');
+        const msg = [ver, passcode, ttm, sig].join(CryptHelper.HASH_DELIMITER);
         const sh2 = CryptHelper.sha256(msg);
-        return `${ver}-${sh2}-${ttm}`;
+        return `${ver}-${sh2}-${ttm}`.split('-').join(CryptHelper.SIGN_DELIMITER);
     }
 
     /**
@@ -55,7 +58,7 @@ export class CryptHelper {
         if (!passcode) throw new Error('passcode is required');
         if (!message) throw new Error('message is required');
         if (!signature) throw new Error('signature is required');
-        const [ver, sh2, ttm] = signature.split('-');
+        const [ver, sh2, ttm] = signature.split(CryptHelper.SIGN_DELIMITER);
         if (!ver || ver != 'v1') return 'invalid version';
         if (!sh2) return 'invalid hash';
         if (!ttm) return 'invalid time';
@@ -66,7 +69,7 @@ export class CryptHelper {
 
         //! check hash-code.
         const sig = CryptHelper.sha256(message);
-        const msg = [ver, passcode, ttm, sig].join('^');
+        const msg = [ver, passcode, ttm, sig].join(CryptHelper.HASH_DELIMITER);
         const sh0 = CryptHelper.sha256(msg);
         if (sh2 != sh0) return 'invalid signature';
         return '';
