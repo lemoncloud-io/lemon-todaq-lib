@@ -19,6 +19,7 @@ describe('CryptHelper', () => {
         const expired2 = DateHelper.asDate(EXPIRED2);
         const PASSCODE = '12345';
         const PASSCODE2 = '123456';
+        const AUTHCODE = '1234';
         const SIGNAGURE = 'v1.d82197a19c097ac99e12c270f89f8ed364fb0c176ab9862a42d6d28ef2409921.1560443766000';
         const SIGNAGURE1 = 'v2.d82197a19c097ac99e12c270f89f8ed364fb0c176ab9862a42d6d28ef2409921.1560443766000';
         const SIGNAGURE2 = 'v1.d82197a19c097ac99e12c270f89f8ed364fb0c176ab9862a42d6d28ef2409922.1560443766000';
@@ -38,6 +39,8 @@ describe('CryptHelper', () => {
         const SIGN_PASSCODE2 = 'v1.9b1449dfd5b74cb94d3d286067140a2c21eed02fc5b38124286a394e2a620a78.1592066166000';
         expect(service.signature(PASSCODE, PASSCODE2, expired2)).toBe(SIGN_PASSCODE2);
         expect(service.signature(PASSCODE, MSG_BODY, expired)).toBe(SIGNAGURE);
+        const SIGN_AUTHCODE = 'v1.6afb26cf9f94191e65832861f9faa011c440e058398ae27bc182494f8822f24c.1592066166000';
+        expect(service.signature(AUTHCODE, AUTHCODE, expired2)).toBe(SIGN_AUTHCODE);
 
         expect(service.checkSignature(PASSCODE, MSG_BODY, SIGNAGURE, expired)).toBe('');
         expect(service.checkSignature(PASSCODE, MSG_BODY, SIGNAGURE1, expired)).toBe('invalid version');
