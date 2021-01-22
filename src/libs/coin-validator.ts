@@ -1,11 +1,13 @@
 /**
- * coin.validator.ts
+ * coin-validator.ts
  * - common error handler.
  *
  *
- * @author steve@lemoncloud.io
- * @date   2019-06-04
- * @copyright (C) lemoncloud.io 2019 - All Rights Reserved.
+ * @author      Steve Jung <steve@lemoncloud.io>
+ * @date        2019-06-12 initial version
+ * @date        2021-01-22 optimzied and cleanup
+ *
+ * @copyright (C) 2021 LemonCloud Co Ltd. - All Rights Reserved.
  */
 export class CoinValidator {
     /**

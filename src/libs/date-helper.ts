@@ -1,14 +1,16 @@
 /**
- * date.helper.ts
+ * date-helper.ts
  * - helper class for date
  *
  * **NOTE**
  * - TIME_ZONE 과 `TimezoneOffset`와는 개념상 약간 차이가 있음.
  * - 썸머타임을 이용하는 나라의 경우, `TimezoneOffset`이 수시로 바뀜 => TODO:IMPROVE.
  *
- * @author steve@lemoncloud.io
- * @date   2019-06-12
- * @copyright (C) lemoncloud.io 2019 - All Rights Reserved.
+ * @author      Steve Jung <steve@lemoncloud.io>
+ * @date        2019-06-12 initial version
+ * @date        2021-01-22 optimzied and cleanup
+ *
+ * @copyright (C) 2021 LemonCloud Co Ltd. - All Rights Reserved.
  */
 export class DateHelper {
     /**
