@@ -1,3 +1,11 @@
+/**
+ * `trans-polling.spec.ts`
+ *
+ * @author      Steve Jung <steve@lemoncloud.io>
+ * @date        2021-01-22 optimized
+ *
+ * @copyright (C) 2021 LemonCloud Co Ltd. - All Rights Reserved.
+ */
 import { TransactionPolling } from '../../src/';
 
 describe('CoinValidator', () => {
@@ -5,7 +13,7 @@ describe('CoinValidator', () => {
     const wait10 = () =>
         new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve();
+                resolve(0);
             }, 10);
         });
 

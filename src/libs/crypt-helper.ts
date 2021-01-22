@@ -1,14 +1,16 @@
 /**
- * crypt.helper.ts
+ * crypt-helper.ts
  * - helper class for encryptions
  *
  * **TODO**
  *
- * @author steve@lemoncloud.io
- * @date   2019-06-12
- * @copyright (C) lemoncloud.io 2019 - All Rights Reserved.
+ * @author      Steve Jung <steve@lemoncloud.io>
+ * @date        2019-06-12 initial version
+ * @date        2021-01-22 optimzied and cleanup
+ *
+ * @copyright (C) 2021 LemonCloud Co Ltd. - All Rights Reserved.
  */
-import sha256, { Hash, HMAC } from 'fast-sha256';
+import sha256 from 'fast-sha256';
 
 export class CryptHelper {
     /**
